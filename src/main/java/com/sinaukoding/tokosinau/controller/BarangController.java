@@ -1,24 +1,27 @@
 package com.sinaukoding.tokosinau.controller;
-
+import com.sinaukoding.tokosinau.common.Response;
 import com.sinaukoding.tokosinau.entity.dto.BarangDTO;
+import com.sinaukoding.tokosinau.entity.dto.PembayaranDTO;
 import com.sinaukoding.tokosinau.service.impl.BarangServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/barangs")
-
 public class BarangController {
 
     @Autowired
     private BarangServiceImpl service;
 
     @GetMapping("/find-all")
-    public ResponseEntity<?> findAllData(){
-        return new ResponseEntity<>(service.findAllData(), HttpStatus.OK);
+    public Response findAllData(){
+        List<BarangDTO> data = service.findAllData();
+        return new Response(data, "Get All Data Pembayaran", data.size(), HttpStatus.OK);
     }
 
     @PostMapping("/create")
@@ -39,8 +42,8 @@ public class BarangController {
     }
 
     @GetMapping("/find-by-id/{id}")
-    public ResponseEntity<?> findById(@PathVariable Long id){
-        return new ResponseEntity<>(service.findById(id), HttpStatus.OK);
+    public Response findById(@PathVariable Long id){
+        return new Response(service.findById(id), "Berhasil Mengabil Data dari id " + id, HttpStatus.OK);
     }
 
     @GetMapping("/find-by-id")

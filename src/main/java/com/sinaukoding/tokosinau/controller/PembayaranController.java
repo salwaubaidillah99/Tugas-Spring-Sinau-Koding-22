@@ -1,13 +1,14 @@
 package com.sinaukoding.tokosinau.controller;
 
-import com.sinaukoding.tokosinau.entity.dto.BarangDTO;
+import com.sinaukoding.tokosinau.common.Response;
 import com.sinaukoding.tokosinau.entity.dto.PembayaranDTO;
-import com.sinaukoding.tokosinau.service.impl.BarangServiceImpl;
 import com.sinaukoding.tokosinau.service.impl.PembayaranServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -19,10 +20,10 @@ public class PembayaranController {
     private PembayaranServiceImpl service;
 
     @GetMapping("/find-all")
-    public ResponseEntity<?> findAllData(){
-        return new ResponseEntity<>(service.findAllData(), HttpStatus.OK);
+    public Response findAllData(){
+        List<PembayaranDTO> data = service.findAllData();
+        return new Response(data, "Get All Data Pembayaran", data.size(), HttpStatus.OK);
     }
-
     @PostMapping("/create")
     public ResponseEntity<?> saveData(@RequestBody PembayaranDTO param){
         return new ResponseEntity<>(service.save(param), HttpStatus.OK);
