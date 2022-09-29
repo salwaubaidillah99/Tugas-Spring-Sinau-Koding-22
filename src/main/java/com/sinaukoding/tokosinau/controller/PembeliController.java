@@ -1,7 +1,9 @@
 package com.sinaukoding.tokosinau.controller;
 import com.sinaukoding.tokosinau.entity.dto.PembeliDTO;
 import com.sinaukoding.tokosinau.entity.Pembeli;
+import com.sinaukoding.tokosinau.entity.dto.SupplierDTO;
 import com.sinaukoding.tokosinau.service.impl.PembeliServiceImpl;
+import com.sinaukoding.tokosinau.service.impl.SupplierServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,13 +16,14 @@ public class PembeliController {
     private PembeliServiceImpl service;
 
     @GetMapping("/find-all")
-    public ResponseEntity<?>findAllData(){
+    public ResponseEntity<?> findAllData(){
         return new ResponseEntity<>(service.findAllData(), HttpStatus.OK);
     }
 
     @PostMapping("/create")
-    public ResponseEntity<?>saveData(@RequestBody PembeliDTO param){
-        return new ResponseEntity<>(service.save(param),HttpStatus.OK);
+    public  ResponseEntity<?>saveData(@RequestBody PembeliDTO param){
+        return new ResponseEntity<>(service.save(param), HttpStatus.OK);
+
     }
     @PutMapping("/update/{id}")
     public ResponseEntity<?>updateData(@PathVariable Long id,
@@ -50,5 +53,4 @@ public class PembeliController {
             return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
         }
     }
-
 }

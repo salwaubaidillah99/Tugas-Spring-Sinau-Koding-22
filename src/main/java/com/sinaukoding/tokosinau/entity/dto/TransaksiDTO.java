@@ -1,6 +1,7 @@
 package com.sinaukoding.tokosinau.entity.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.sinaukoding.tokosinau.entity.Pembeli;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,4 +18,6 @@ public class TransaksiDTO {
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private PembeliDTO pembeli;
+
 }
+

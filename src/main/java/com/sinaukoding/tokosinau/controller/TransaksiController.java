@@ -1,6 +1,9 @@
 package com.sinaukoding.tokosinau.controller;
 
+import com.sinaukoding.tokosinau.entity.Transaksi;
+import com.sinaukoding.tokosinau.entity.dto.BarangDTO;
 import com.sinaukoding.tokosinau.entity.dto.TransaksiDTO;
+import com.sinaukoding.tokosinau.service.impl.BarangServiceImpl;
 import com.sinaukoding.tokosinau.service.impl.TransaksiServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

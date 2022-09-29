@@ -7,11 +7,11 @@ import lombok.Setter;
 public class PembeliDTO {
     private Long id;
 
-    private String nama_pembeli;
+    private String namaPembeli;
 
-    private String jenis_kelamin;
+    private String jenisKelamin;
 
-    private String no_telp;
+    private String noTelp;
 
     private String alamat;
 

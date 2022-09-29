@@ -13,19 +13,24 @@ import java.util.Date;
 public class Transaksi {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(columnDefinition = "integer", length = 11)
+    //@Column(columnDefinition = "integer", length = 11)
     private Long id;
 
-    @Column(columnDefinition = "date")
+    //@Column(columnDefinition = "date")
     private Date tanggal;
 
-    @Column(columnDefinition = "varchar", length = 100)
+    //@Column(columnDefinition = "varchar", length = 11)
     private String keterangan;
 
+    //@Column(columnDefinition = "integer", length = 11)
+    private Integer stok;
 
     @ManyToOne
     @JoinColumn(name = "id_pembeli")
     private Pembeli pembeli;
+
+
+
 
 
 

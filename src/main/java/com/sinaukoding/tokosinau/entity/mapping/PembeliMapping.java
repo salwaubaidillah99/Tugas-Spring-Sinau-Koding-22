@@ -1,7 +1,9 @@
 package com.sinaukoding.tokosinau.entity.mapping;
 
 import com.sinaukoding.tokosinau.entity.Pembeli;
+import com.sinaukoding.tokosinau.entity.Supplier;
 import com.sinaukoding.tokosinau.entity.dto.PembeliDTO;
+import com.sinaukoding.tokosinau.entity.dto.SupplierDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
@@ -12,5 +14,7 @@ public interface PembeliMapping {
     PembeliMapping instance = Mappers.getMapper(PembeliMapping.class);
     Pembeli toEntity(PembeliDTO dto);
     PembeliDTO toDto(Pembeli parm);
-    List<PembeliDTO>toListDto(List<Pembeli>pembeliList);
+    List<PembeliDTO> toListDto(List<Pembeli>pembeliList);
+
 }
+

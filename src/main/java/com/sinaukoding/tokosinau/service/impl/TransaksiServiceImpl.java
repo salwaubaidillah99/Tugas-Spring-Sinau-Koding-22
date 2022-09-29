@@ -1,13 +1,20 @@
 package com.sinaukoding.tokosinau.service.impl;
 
 
+import com.sinaukoding.tokosinau.entity.Barang;
 import com.sinaukoding.tokosinau.entity.Pembeli;
 
+import com.sinaukoding.tokosinau.entity.Supplier;
 import com.sinaukoding.tokosinau.entity.Transaksi;
+import com.sinaukoding.tokosinau.entity.dto.BarangDTO;
 import com.sinaukoding.tokosinau.entity.dto.TransaksiDTO;
+import com.sinaukoding.tokosinau.entity.mapping.BarangMapping;
 import com.sinaukoding.tokosinau.entity.mapping.PembeliMapping;
+import com.sinaukoding.tokosinau.entity.mapping.SupplierMapping;
 import com.sinaukoding.tokosinau.entity.mapping.TransaksiMapping;
+import com.sinaukoding.tokosinau.repository.BarangRepository;
 import com.sinaukoding.tokosinau.repository.PembeliRepository;
+import com.sinaukoding.tokosinau.repository.SupplierRepository;
 import com.sinaukoding.tokosinau.repository.TransaksiRepository;
 import com.sinaukoding.tokosinau.service.TransaksiService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +23,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class TransaksiServiceImpl implements TransaksiService {
+
 
     @Autowired
     private TransaksiRepository repository;
@@ -42,7 +50,6 @@ public class TransaksiServiceImpl implements TransaksiService {
 
     @Override
     public List<TransaksiDTO> findAllData() {
-
         return TransaksiMapping.instance.toListDto(repository.findAll());
     }
 
@@ -54,7 +61,6 @@ public class TransaksiServiceImpl implements TransaksiService {
             data.setTanggal(param.getTanggal() == null ? data.getTanggal() : param.getTanggal());
             data.setKeterangan(param.getKeterangan() != null ? param.getKeterangan() : data.getKeterangan());
 
-
             return TransaksiMapping.instance.toDto(repository.save(data));
         }
 
@@ -65,7 +71,7 @@ public class TransaksiServiceImpl implements TransaksiService {
     public Boolean delete(Long id) {
         Transaksi data = repository.findById(id).orElse(null);
 
-        if (data != null) {
+        if (data != null){
             repository.delete(data);
             return true;
         }
@@ -78,7 +84,3 @@ public class TransaksiServiceImpl implements TransaksiService {
         return TransaksiMapping.instance.toDto(repository.findById(id).orElse(null));
     }
 }
-
-
-
-
