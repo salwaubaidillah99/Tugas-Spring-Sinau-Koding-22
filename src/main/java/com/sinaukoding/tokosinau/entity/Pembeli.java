@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "pembelis")
@@ -11,19 +12,23 @@ import javax.persistence.*;
 @Setter
 public class Pembeli {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(columnDefinition = "INTEGER(11)")
     private Long id;
 
-    @Column
+    @Column(columnDefinition = "VARCHAR(30)")
     private String nama_pembeli;
 
-    @Column
+    @Column(columnDefinition = "VARCHAR(30)")
     private String jenis_kelamin;
 
-    @Column
+    @Column(columnDefinition = "VARCHAR(30)")
     private String no_telp;
 
-    @Column
+    @Column(columnDefinition = "VARCHAR(30)")
     private String alamat;
+
+    @OneToMany(mappedBy = "pembeli")
+    private List<Transaksi> transaksiList;
 }
 

@@ -1,6 +1,5 @@
 package com.sinaukoding.tokosinau.controller;
 
-import com.sinaukoding.tokosinau.entity.Supplier;
 import com.sinaukoding.tokosinau.entity.dto.SupplierDTO;
 import com.sinaukoding.tokosinau.service.impl.SupplierServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;

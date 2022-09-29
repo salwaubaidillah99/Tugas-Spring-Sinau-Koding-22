@@ -1,7 +1,7 @@
 package com.sinaukoding.tokosinau.controller;
 
-import com.sinaukoding.tokosinau.entity.dto.BarangDTO;
-import com.sinaukoding.tokosinau.service.impl.BarangServiceImpl;
+import com.sinaukoding.tokosinau.entity.dto.TransaksiDTO;
+import com.sinaukoding.tokosinau.service.impl.TransaksiServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,12 +9,13 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("/barangs")
+@RequestMapping("/transaksis")
 
-public class BarangController {
+
+public class TransaksiController {
 
     @Autowired
-    private BarangServiceImpl service;
+    private TransaksiServiceImpl service;
 
     @GetMapping("/find-all")
     public ResponseEntity<?> findAllData(){
@@ -22,14 +23,14 @@ public class BarangController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<?> saveData(@RequestBody BarangDTO param){
+    public ResponseEntity<?> saveData(@RequestBody TransaksiDTO param){
         return new ResponseEntity<>(service.save(param), HttpStatus.OK);
     }
 
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updateData(@PathVariable Long id,
-                                        @RequestBody BarangDTO param){
-        BarangDTO data = service.update(param, id);
+                                        @RequestBody TransaksiDTO param){
+        TransaksiDTO data = service.update(param, id);
 
         if (data != null) {
             return new ResponseEntity<>(data, HttpStatus.OK);

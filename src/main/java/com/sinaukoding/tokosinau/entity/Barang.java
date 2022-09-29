@@ -12,16 +12,21 @@ import javax.persistence.*;
 public class Barang {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "integer", length = 11)
     private Long id;
 
-    @Column
-    private String nama_barang;
+    @Column(columnDefinition = "varchar", length = 20)
+    private String namaBarang;
 
-    @Column
+    @Column(columnDefinition = "integer", length = 11)
     private Double harga;
 
-    @Column
+    @Column(columnDefinition = "integer", length = 11)
     private Integer stok;
+
+    @ManyToOne
+    @JoinColumn(name = "id_supplier")
+    private Supplier supplier;
 
 
 

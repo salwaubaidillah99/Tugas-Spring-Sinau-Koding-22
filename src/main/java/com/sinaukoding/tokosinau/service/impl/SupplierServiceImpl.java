@@ -32,7 +32,7 @@ public class SupplierServiceImpl implements SupplierService {
         Supplier data = repository.findById(id).orElse(null);
 
         if (data != null) {
-            data.setNama_supplier(param.getNama_supplier() == null ? data.getNama_supplier() : param.getNama_supplier());
+            data.setNamaSupplier(param.getNamaSupplier() == null ? data.getNamaSupplier() : param.getNamaSupplier());
             data.setNoTelp(param.getNoTelp() != null ? param.getNoTelp() : data.getNoTelp());
             data.setAlamat(param.getAlamat() != null ? param.getAlamat() : data.getAlamat());
 

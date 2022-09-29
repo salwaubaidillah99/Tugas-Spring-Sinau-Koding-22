@@ -1,27 +1,33 @@
 package com.sinaukoding.tokosinau.entity;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.type.descriptor.sql.VarcharTypeDescriptor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "suppliers")
 @Getter
 @Setter
+@NoArgsConstructor
 public class Supplier {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(columnDefinition = "INTEGER(11)")
     private Long id;
 
-    @Column
-    private String nama_supplier;
+    @Column(columnDefinition = "VARCHAR(30)")
+    private String namaSupplier;
 
-    @Column
+    @Column(columnDefinition = "VARCHAR(13)")
     private String noTelp;
 
-    @Column
+    @Column(columnDefinition = "VARCHAR(100)")
     private String alamat;
+
+    @OneToMany(mappedBy = "supplier")
+    private List<Barang> barangList;
 }
 

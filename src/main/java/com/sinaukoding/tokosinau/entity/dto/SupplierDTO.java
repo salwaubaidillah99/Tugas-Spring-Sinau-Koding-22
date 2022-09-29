@@ -8,7 +8,7 @@ import lombok.Setter;
 public class SupplierDTO {
     private Long id;
 
-    private String nama_supplier;
+    private String namaSupplier;
 
     private String noTelp;
 
