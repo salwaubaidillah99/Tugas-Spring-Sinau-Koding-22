@@ -20,6 +20,7 @@ import com.sinaukoding.tokosinau.service.TransaksiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 @Service
 public class TransaksiServiceImpl implements TransaksiService {
@@ -29,8 +30,12 @@ public class TransaksiServiceImpl implements TransaksiService {
     private TransaksiRepository repository;
 
     @Autowired
+    private BarangRepository barangRepository;
+
+    @Autowired
     private PembeliRepository pembeliRepository;
 
+    @Transactional
     @Override
     public TransaksiDTO save(TransaksiDTO param) {
         Pembeli pembeli = PembeliMapping.instance.toEntity(param.getPembeli());
@@ -49,24 +54,26 @@ public class TransaksiServiceImpl implements TransaksiService {
     }
 
     @Override
-    public List<TransaksiDTO> findAllData() {
+    public List<TransaksiDTO> findAllData()
+    {
         return TransaksiMapping.instance.toListDto(repository.findAll());
-    }
 
+    }
     @Override
     public TransaksiDTO update(TransaksiDTO param, Long id) {
         Transaksi data = repository.findById(id).orElse(null);
 
-        if (data != null) {
-            data.setTanggal(param.getTanggal() == null ? data.getTanggal() : param.getTanggal());
-            data.setKeterangan(param.getKeterangan() != null ? param.getKeterangan() : data.getKeterangan());
+        if (data != null){
+            data.setTanggal(param.getTanggal()== null ? data.getTanggal() : param.getTanggal());
+            data.setKeterangan(param.getKeterangan()== null ? data.getKeterangan() : param.getKeterangan());
 
-            return TransaksiMapping.instance.toDto(repository.save(data));
+
+
+            return  TransaksiMapping.instance.toDto(repository.save(data));
         }
-
         return TransaksiMapping.instance.toDto(data);
-    }
 
+    }
     @Override
     public Boolean delete(Long id) {
         Transaksi data = repository.findById(id).orElse(null);

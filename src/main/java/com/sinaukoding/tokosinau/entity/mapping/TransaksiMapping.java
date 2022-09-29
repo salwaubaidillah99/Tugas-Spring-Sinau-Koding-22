@@ -12,7 +12,10 @@ import java.util.List;
 @Mapper
 public interface TransaksiMapping {
     TransaksiMapping instance = Mappers.getMapper(TransaksiMapping.class);
+
     Transaksi toEntity(TransaksiDTO dto);
+
     TransaksiDTO toDto(Transaksi param);
-    List<TransaksiDTO> toListDto(List<Transaksi> transaksiList);
+
+    List<TransaksiDTO> toListDto (List<Transaksi> transaksiList);
 }

@@ -1,10 +1,12 @@
 package com.sinaukoding.tokosinau.entity;
 
+import javafx.scene.Node;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "transaksis")
@@ -13,24 +15,20 @@ import java.util.Date;
 public class Transaksi {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //@Column(columnDefinition = "integer", length = 11)
+    @Column(columnDefinition = "BIGINT(11)")
     private Long id;
 
-    //@Column(columnDefinition = "date")
     private Date tanggal;
 
-    //@Column(columnDefinition = "varchar", length = 11)
+    @Column
     private String keterangan;
-
-    //@Column(columnDefinition = "integer", length = 11)
-    private Integer stok;
 
     @ManyToOne
     @JoinColumn(name = "id_pembeli")
     private Pembeli pembeli;
-
-
-
+    @ManyToOne
+    @JoinColumn(name = "id_barang")
+    private Barang barang;
 
 
 
