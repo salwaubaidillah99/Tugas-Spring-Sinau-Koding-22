@@ -64,7 +64,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \r\n    \r\n    \"nama_supplier\" : \" Joko\"\r\n    \r\n}",
+							"raw": "{\r\n    \"alamat\": \"Makassar\"\r\n}\r\n    \r\n    \r\n    \"nama_supplier\" : \" Joko\"\r\n    \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -93,7 +93,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/suppliers/find-by-id/1",
+							"raw": "http://localhost:8080/suppliers/find-by-id/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -102,7 +102,7 @@
 							"path": [
 								"suppliers",
 								"find-by-id",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -164,7 +164,7 @@
 					"response": []
 				},
 				{
-					"name": "Select All Data Supplier",
+					"name": "Select All Data Pembeli",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -190,7 +190,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"nama_pembeli\" :\"Denis\"\r\n}",
+							"raw": "{\r\n   \"noTelp\" :\"+63789283898\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -198,7 +198,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/pembelis/update/2",
+							"raw": "http://localhost:8080/pembelis/update/5",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -207,7 +207,7 @@
 							"path": [
 								"pembelis",
 								"update",
-								"2"
+								"5"
 							]
 						}
 					},
@@ -219,7 +219,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/pembelis/find-by-id/1",
+							"raw": "http://localhost:8080/pembelis/find-by-id/8",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -228,7 +228,7 @@
 							"path": [
 								"pembelis",
 								"find-by-id",
-								"1"
+								"8"
 							]
 						}
 					},
@@ -240,16 +240,16 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/suppliers/delete/1",
+							"raw": "http://localhost:8080/pembelis/delete/6",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"suppliers",
+								"pembelis",
 								"delete",
-								"1"
+								"6"
 							]
 						}
 					},
@@ -262,9 +262,33 @@
 			"item": [
 				{
 					"name": "Select All Barang",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/barangs/find-all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"barangs",
+								"find-all"
+							]
+						}
 					},
 					"response": []
 				},
@@ -275,7 +299,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nama_barang\" :\"Kaos\",\r\n    \"harga\" : 54000 ,\r\n    \"stok\" : \"50\" \r\n    \r\n}",
+							"raw": "{\r\n    \"namaBarang\" :\"Sepatu \",\r\n    \"harga\" : 550000 ,\r\n    \"stok\" : 5 ,\r\n    \"supplier\" : {\r\n        \"id\": 1,\r\n        \"namaSupplier\": \"CV Indah Permata\",\r\n        \"noTelp\": \"+62366788199\",\r\n        \"alamat\": \"Bandung\"\r\n    }\r\n    \r\n    \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -354,7 +378,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/barangs/delete/2",
+							"raw": "http://localhost:8080/barangs/delete/9",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -363,9 +387,84 @@
 							"path": [
 								"barangs",
 								"delete",
-								"2"
+								"9"
 							]
 						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transaksi",
+			"item": [
+				{
+					"name": "Menampilkan Transaksi",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/transaksis/find-all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transaksis",
+								"find-all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tanggal\":\"1999-02-04\",\r\n    \"keterangan\": \"Lunas\",\r\n    \"pembeli\": {\r\n          \"id\": 8,\r\n        \"namaPembeli\": \"Dono\",\r\n        \"jenisKelamin\": \"L\",\r\n        \"noTelp\": \"+62891828\",\r\n        \"alamat\": \"Bali\"\r\n    },\r\n    \"barang\": {\r\n            \"id\": 1,\r\n        \"namaBarang\": \"Tas\",\r\n        \"harga\": 650000.0,\r\n        \"stok\": 2\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/transaksis/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transaksis",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pembayaran",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}
