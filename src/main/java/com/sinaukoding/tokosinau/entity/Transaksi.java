@@ -30,6 +30,9 @@ public class Transaksi {
     @JoinColumn(name = "id_barang")
     private Barang barang;
 
+    @OneToMany(mappedBy = "transaksi")
+    private List<Pembayaran> pembayaranList;
+
 
 
 
