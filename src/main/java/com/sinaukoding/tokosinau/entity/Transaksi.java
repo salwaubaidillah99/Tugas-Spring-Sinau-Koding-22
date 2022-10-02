@@ -1,6 +1,5 @@
 package com.sinaukoding.tokosinau.entity;
 
-import javafx.scene.Node;
 import lombok.Getter;
 import lombok.Setter;
 
