@@ -1,7 +1,6 @@
 package com.sinaukoding.tokosinau.service;
 
 import com.sinaukoding.tokosinau.entity.Barang;
-import com.sinaukoding.tokosinau.entity.Pembeli;
 import com.sinaukoding.tokosinau.entity.dto.BarangDTO;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 package com.sinaukoding.tokosinau.controller;
 import com.sinaukoding.tokosinau.common.Response;
-import com.sinaukoding.tokosinau.entity.dto.BarangDTO;
 import com.sinaukoding.tokosinau.entity.dto.PembayaranDTO;
+import com.sinaukoding.tokosinau.entity.dto.BarangDTO;
 import com.sinaukoding.tokosinau.service.impl.BarangServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,20 +15,20 @@ import java.util.List;
 @RequestMapping("/barangs")
 public class BarangController {
 
+
     @Autowired
     private BarangServiceImpl service;
 
     @GetMapping("/find-all")
     public Response findAllData(){
         List<BarangDTO> data = service.findAllData();
-        return new Response(data, "Get All Data Pembayaran", data.size(), HttpStatus.OK);
+        return new Response(data, "Get All Data Barang", data.size(), HttpStatus.OK);
     }
 
     @PostMapping("/create")
     public ResponseEntity<?> saveData(@RequestBody BarangDTO param){
         return new ResponseEntity<>(service.save(param), HttpStatus.OK);
     }
-
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updateData(@PathVariable Long id,
                                         @RequestBody BarangDTO param){
@@ -40,25 +40,17 @@ public class BarangController {
             return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
         }
     }
-
     @GetMapping("/find-by-id/{id}")
     public Response findById(@PathVariable Long id){
         return new Response(service.findById(id), "Berhasil Mengabil Data dari id " + id, HttpStatus.OK);
     }
 
-    @GetMapping("/find-by-id")
-    public ResponseEntity<?> findById2(@RequestParam(name = "id") Long id){
-        return new ResponseEntity<>(service.findById(id), HttpStatus.OK);
-    }
-
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteData(@PathVariable Long id){
+    public Response deleteData(@PathVariable Long id){
         if (service.delete(id)){
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new Response("Data Berhasil di Hapus",HttpStatus.OK);
         }else{
-            return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
+            return new Response("Data Gagal di Hapus",HttpStatus.BAD_REQUEST);
         }
-
-
     }
 }

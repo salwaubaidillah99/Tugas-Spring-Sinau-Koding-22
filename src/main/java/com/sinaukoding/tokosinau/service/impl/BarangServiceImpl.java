@@ -10,7 +10,7 @@ import com.sinaukoding.tokosinau.repository.SupplierRepository;
 import com.sinaukoding.tokosinau.service.BarangService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import javax.transaction.Transactional;
 import java.util.List;
 
 
@@ -23,6 +23,7 @@ public class BarangServiceImpl implements BarangService {
     @Autowired
     private SupplierRepository supplierRepository;
 
+    @Transactional
     @Override
     public BarangDTO save(BarangDTO param) {
         Supplier supplier = SupplierMapping.instance.toEntity(param.getSupplier());
@@ -39,27 +40,30 @@ public class BarangServiceImpl implements BarangService {
 
         return BarangMapping.instance.toDto(data);
     }
-
+    @Transactional
     @Override
-    public List<BarangDTO> findAllData() {
+    public List<BarangDTO> findAllData()
+    {
         return BarangMapping.instance.toListDto(repository.findAll());
-    }
 
+    }
+    @Transactional
     @Override
     public BarangDTO update(BarangDTO param, Long id) {
         Barang data = repository.findById(id).orElse(null);
 
-        if (data != null) {
-            data.setNamaBarang(param.getNamaBarang() == null ? data.getNamaBarang() : param.getNamaBarang());
-            data.setHarga(param.getHarga() != null ? param.getHarga() : data.getHarga());
-            data.setStok(param.getStok() != null ? param.getStok() : data.getStok());
+        if (data != null){
+            data.setNamaBarang(param.getNamaBarang()== null ? data.getNamaBarang() : param.getNamaBarang());
+            data.setHarga(param.getHarga()== null ? data.getHarga() : param.getHarga());
+            data.setStok(param.getStok()== null ? data.getStok() : param.getStok());
 
-            return BarangMapping.instance.toDto(repository.save(data));
+
+
+            return  BarangMapping.instance.toDto(repository.save(data));
         }
-
         return BarangMapping.instance.toDto(data);
-    }
 
+    }
     @Override
     public Boolean delete(Long id) {
         Barang data = repository.findById(id).orElse(null);
@@ -77,6 +81,3 @@ public class BarangServiceImpl implements BarangService {
         return BarangMapping.instance.toDto(repository.findById(id).orElse(null));
     }
 }
-
-
-
