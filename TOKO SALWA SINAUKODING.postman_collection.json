@@ -399,7 +399,7 @@
 			"name": "Transaksi",
 			"item": [
 				{
-					"name": "Menampilkan Transaksi",
+					"name": "Select All Data Transaksi",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -419,7 +419,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "Create Data Transaksi",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -446,6 +446,78 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Delete Data Transaksi",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/transaksis/delete/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transaksis",
+								"delete",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Data Transaksi",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"tanggal\": \"01-10-2022\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/transaksis/update/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transaksis",
+								"update",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Select Data Transaksi By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/transaksis/find-by-id/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transaksis",
+								"find-by-id",
+								"3"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -453,18 +525,124 @@
 			"name": "Pembayaran",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "Select All Pembayaran",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pembayarans/find-all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pembayarans",
+								"find-all"
+							]
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "Update Data Pembayaran",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tglBayar\":\"03-09-2021\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pembayarans/update/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pembayarans",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Data Pembayaran",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"tglBayar\": \"03-04-2021\",\r\n            \"totalBayar\": 1500000,\r\n            \"transaksi\": {\r\n                \"id\": 1,\r\n                \"tanggal\": \"02-10-2022\",\r\n                \"keterangan\": \"Lunas\"\r\n            }\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pembayarans/create/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pembayarans",
+								"create",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Data Pembayaran",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pembayarans/delete/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pembayarans",
+								"delete",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Select Pembayaran By Id",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pembayarans/find-by-id/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pembayarans",
+								"find-by-id",
+								"2"
+							]
+						}
 					},
 					"response": []
 				}
