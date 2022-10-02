@@ -11,7 +11,7 @@ import java.util.Date;
 public class PembayaranDTO {
     private Long id;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private Date tglBayar;
 
     private Integer totalBayar;

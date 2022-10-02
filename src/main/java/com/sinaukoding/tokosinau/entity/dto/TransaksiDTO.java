@@ -14,7 +14,7 @@ import java.util.Date;
 public class TransaksiDTO {
     private Long id;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private Date tanggal;
 
     private String keterangan;
