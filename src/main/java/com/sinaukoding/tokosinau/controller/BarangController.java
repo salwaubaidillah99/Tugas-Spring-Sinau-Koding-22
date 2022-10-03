@@ -1,5 +1,6 @@
 package com.sinaukoding.tokosinau.controller;
 import com.sinaukoding.tokosinau.common.Response;
+import com.sinaukoding.tokosinau.entity.Barang;
 import com.sinaukoding.tokosinau.entity.dto.BarangDTO;
 import com.sinaukoding.tokosinau.service.impl.BarangServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,13 +22,17 @@ public class BarangController {
     @GetMapping("/find-all")
     public Response findAllData(){
         List<BarangDTO> data = service.findAllData();
-        return new Response(data, "Get All Data Barang", data.size(), HttpStatus.OK);
+        return new Response(data, "Get All Data Pembayaran", data.size(), HttpStatus.OK);
     }
 
     @PostMapping("/create")
-    public ResponseEntity<?> saveData(@RequestBody BarangDTO param){
-        return new ResponseEntity<>(service.save(param), HttpStatus.OK);
+    public Response saveData(@RequestBody BarangDTO param){
+        if (service.save(param) == null){
+            return new Response("Data Pembeli tidak ditemukan", HttpStatus.BAD_REQUEST);
+        }
+        return new Response(service.save(param), "Data Berhasil di tambahkan", HttpStatus.OK);
     }
+
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updateData(@PathVariable Long id,
                                         @RequestBody BarangDTO param){
@@ -39,9 +44,15 @@ public class BarangController {
             return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
         }
     }
+
     @GetMapping("/find-by-id/{id}")
     public Response findById(@PathVariable Long id){
         return new Response(service.findById(id), "Berhasil Mengabil Data dari id " + id, HttpStatus.OK);
+    }
+
+    @GetMapping("/find-by-id")
+    public ResponseEntity<?> findById2(@RequestParam(name = "id") Long id){
+        return new ResponseEntity<>(service.findById(id), HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
@@ -51,5 +62,6 @@ public class BarangController {
         }else{
             return new Response("Data Gagal di Hapus",HttpStatus.BAD_REQUEST);
         }
-    }
-}
+
+
+    }}
