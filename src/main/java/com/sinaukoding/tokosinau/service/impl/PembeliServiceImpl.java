@@ -1,13 +1,9 @@
 package com.sinaukoding.tokosinau.service.impl;
 
 import com.sinaukoding.tokosinau.entity.Pembeli;
-import com.sinaukoding.tokosinau.entity.Supplier;
 import com.sinaukoding.tokosinau.entity.dto.PembeliDTO;
-import com.sinaukoding.tokosinau.entity.dto.SupplierDTO;
 import com.sinaukoding.tokosinau.entity.mapping.PembeliMapping;
-import com.sinaukoding.tokosinau.entity.mapping.SupplierMapping;
 import com.sinaukoding.tokosinau.repository.PembeliRepository;
-import com.sinaukoding.tokosinau.repository.SupplierRepository;
 import com.sinaukoding.tokosinau.service.PembeliService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

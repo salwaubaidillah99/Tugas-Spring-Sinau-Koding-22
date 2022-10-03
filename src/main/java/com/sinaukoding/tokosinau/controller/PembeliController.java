@@ -1,9 +1,6 @@
 package com.sinaukoding.tokosinau.controller;
 import com.sinaukoding.tokosinau.entity.dto.PembeliDTO;
-import com.sinaukoding.tokosinau.entity.Pembeli;
-import com.sinaukoding.tokosinau.entity.dto.SupplierDTO;
 import com.sinaukoding.tokosinau.service.impl.PembeliServiceImpl;
-import com.sinaukoding.tokosinau.service.impl.SupplierServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,6 +1,5 @@
 package com.sinaukoding.tokosinau.controller;
 import com.sinaukoding.tokosinau.common.Response;
-import com.sinaukoding.tokosinau.entity.dto.PembayaranDTO;
 import com.sinaukoding.tokosinau.entity.dto.BarangDTO;
 import com.sinaukoding.tokosinau.service.impl.BarangServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;

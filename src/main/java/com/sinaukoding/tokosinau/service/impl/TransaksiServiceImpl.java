@@ -1,20 +1,13 @@
 package com.sinaukoding.tokosinau.service.impl;
 
 
-import com.sinaukoding.tokosinau.entity.Barang;
 import com.sinaukoding.tokosinau.entity.Pembeli;
-
-import com.sinaukoding.tokosinau.entity.Supplier;
 import com.sinaukoding.tokosinau.entity.Transaksi;
-import com.sinaukoding.tokosinau.entity.dto.BarangDTO;
 import com.sinaukoding.tokosinau.entity.dto.TransaksiDTO;
-import com.sinaukoding.tokosinau.entity.mapping.BarangMapping;
 import com.sinaukoding.tokosinau.entity.mapping.PembeliMapping;
-import com.sinaukoding.tokosinau.entity.mapping.SupplierMapping;
 import com.sinaukoding.tokosinau.entity.mapping.TransaksiMapping;
 import com.sinaukoding.tokosinau.repository.BarangRepository;
 import com.sinaukoding.tokosinau.repository.PembeliRepository;
-import com.sinaukoding.tokosinau.repository.SupplierRepository;
 import com.sinaukoding.tokosinau.repository.TransaksiRepository;
 import com.sinaukoding.tokosinau.service.TransaksiService;
 import org.springframework.beans.factory.annotation.Autowired;

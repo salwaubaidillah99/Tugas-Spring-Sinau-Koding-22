@@ -1,8 +1,6 @@
 package com.sinaukoding.tokosinau.service;
 
-import com.sinaukoding.tokosinau.entity.Pembeli;
 import com.sinaukoding.tokosinau.entity.dto.PembeliDTO;
-import com.sinaukoding.tokosinau.entity.dto.SupplierDTO;
 
 import java.util.List;
 
